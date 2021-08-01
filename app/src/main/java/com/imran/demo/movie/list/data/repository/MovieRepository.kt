@@ -18,7 +18,7 @@ class MovieRepository {
     suspend fun getMovieList(): ApiResponse<MovieModel> {
         val lastFetchedTime = MovieApp.appPref.getLogTime()
         val currentTime = Calendar.getInstance().time.time
-        val period = 30 * 60 * 1000
+        val period = 24 * 60 * 60 * 1000
 
         if (lastFetchedTime + period > currentTime) {
             val data = MovieApp.appDb.movieItemDao().getAllMovieItem()
